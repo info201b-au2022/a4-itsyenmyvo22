@@ -1,7 +1,7 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "America's Incarceration Problem"
+author: "Yenmy Vo"
+date: '2022-11-19'
 output: html_document
 ---
 
@@ -11,35 +11,63 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
-
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
+There is an incarceration problem in America. The jail populations have seen growing trends. The proportions of different identities who end up in jail show there is inequality in the prison system. Data shows higher rates for certain identities. The population makeup of a location and number of counties also affects jail population numbers. 
 
 ## Introduction 
-[TODO]
+There is systematic racism performed everywhere in America and one of them is the prison system. With black people getting put into jail at much higher rates than white people, it is easy to make out the unfair treatment that is happening. Neighborhoods with higher black populations are more highly surveillanced by police than white neighborhoods. There are certain systems that collect data on previous arrests to detect locations of high risk. These high-risk locations are then sent more security to keep an extra eye on them. Unfortunately, these high-risk locations where previous arrests have been made, happen to be neighborhoods of color. This detection system takes data from old arrests and aids the decisions in future arrests. The data that shows these unbalanced jail populations affect the direct identities involved as well as lawmakers, police departments, and safety administrators. Bringing this information to light can change the way police departments run and the places they choose to go after. Administrators and lawmakers can see the unjust that is happening and create policies to stop departments from outlining “risk” areas to target. This data answers questions about the increase in jail populations, the changes in different states, and the differences in jail populations between black and white people. 
 
 ## Data Summary 
-[TODO]
+If we solely take a look at the percentage of black people vs white people in jail, it could be hard to see any patterns of inequality. About `r percent_black_in_jail`% of the jail population is made up of black people. About `r percent_white_in_jail`% of the jail population is made up of white people. These percentages are found from data of 2018. Looking at these numbers alone can lead to misleading conclusions. The problem is we have to take into account that there is much more white people than there is black people in America. If we take the total population of each race and divide it by the jail population of each race, we can get a better look at the ratios. As of numbers collected of 2018, it's 1 in `r ratio_blackpop_jail` for black folks and 1 in `r ratio_whitepop_jail` for white folks. Through these calculated values you can see that black people are more likely to get put into jail. It's important to note this observation to understand the inequality that goes on in the prison system. 
 
-[TODO ... other sections ... See Canvas for details]
+## Growth of the U.S. Jail Population
 
-_All the very best with your work!_
+```{r, echo=FALSE, eval=TRUE}
+plot(plot_jail_pop_for_us())
+``` 
+
+Figure 1. Increase of Jail Population in U.S. (1970-2018). 
+
+The x-axis presents the years and the y-axis presents the population in jail. The bars show an increase over time. 
+
+How has jail population changed over time?
+This chart shows that overall, there has been a growth in the U.S. jail population over the years. from 1970 to 1980 the population remains around the same. Starting from 1980 onward there is a steady increase. The numbers begin to stoop down around 2010 but still remain very high compared to the earlier years. 
+
+## Growth of Jail Population by State 
+
+```{r, echo=FALSE, eval=TRUE}
+plot(plot_jail_pop_by_states())
+``` 
+
+Figure 2. Increase of Jail Population by State (1970-2018)
+
+The x-axis presents the years and the y-axis presents the population in jail. Each different colored line represents a different state. The lines show an increase over time. 
+
+How has jail population changed in different states?
+This chart shows that there's a common pattern of increasing jail populations for all 5 presented states. California, Texas, and Florida have a lot higher jail populations than Washington and Wyoming. The rate of increase for California, Florida, and Texas spike much more than the other two states. Wyoming seems to have the lowest increasing rate. The states with the highest jail populations and increase rates are the states with some of the highest populations in the country. Wyoming is the least populous state in the country and has the lowest jail population and increase rate.  
+
+## Growth of Jail Population by Race 
+
+```{r, echo=FALSE, eval=TRUE}
+plot(plot_jail_pop_by_race())
+``` 
+
+Figure 3. Increase of Jail Population by Race (1970-2018)
+
+The x-axis presents the years and the y-axis presents the population in jail. The different colored dots represent different races. The dots show a trend of increase over time with some trending downwards in later years. 
+
+What is the difference between black and white population growth in jail?
+Both races have increasing populations in jail but around 2008 the black population starts to decline. Starting around 2006 the white population stops increasing at the usual rate and starts to balance off, but it does steep down as much as the black population does. The jail population of white and black people dance around each other from 1985 to 2000. Starting at year 2000 the two race populations really start to diverge. Data from 1970 to 1985 is low. 
+
+## Proportions of Jail Populations in Each State  
+
+```{r, echo=FALSE, eval=TRUE}
+plot(plot_map())
+``` 
+
+Figure 4. Proportion of Jail Populations in States (2018)
+
+The map above presents the 50 states of America and places different sized dots in each state to represent the proportion of people in jail in each state. A color scale is present to color each state by the population of black people. The bright red is higher numbers of black population and the darker the color gets, the lower the black population. 
+
+How does the black population in states affect the jail populations? 
+In states with higher black populations there also tends to be a higher jail population. States in the midwest have low black population and also have some of the lowest jail populations. The brightest red states (representing high black population) have the biggest yellow dots (biggest jail populations). Red states tend to be on the outskirts and east of the country. 
 
